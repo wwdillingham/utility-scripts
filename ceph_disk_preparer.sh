@@ -20,7 +20,7 @@ do
 	vgcreate vg_dev_$i /dev/$i
 
 	#Make the Logical Volume using 100% of the available space in the VG 
-	lvcreate -l 100%FREE -n lv_dev_$i vg_dev_$I
+	lvcreate -l 100%FREE -n lv_dev_$i vg_dev_$i
 	
         echo "making xfs filesystem on lv_dev_$i"
         mkfs.xfs -q /dev/vg_dev_$i/lv_dev_$i
@@ -31,5 +31,5 @@ done
 echo "block device information: "
 lsblk
 
-echo "Locgical Volume Scan:"
+echo "Logical Volume Scan:"
 lvscan
